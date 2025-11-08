@@ -25,7 +25,8 @@ FOREIGN KEY (IDCurso) REFERENCES Cursos(IDCurso)
 
 CREATE TABLE Foros(
 IDForo bigint identity(1,1) PRIMARY KEY not null,
-IDComision integer not null --FK
+IDComision integer not null, --FK
+Nombre varchar(75) not null
 
 FOREIGN KEY (IDComision) REFERENCES Comisiones(IDComision)
 );
@@ -33,7 +34,8 @@ FOREIGN KEY (IDComision) REFERENCES Comisiones(IDComision)
 
 CREATE TABLE Hilos(
 IDHilo bigint identity(1,1) PRIMARY KEY not null,
-IDForo bigint not null --FK
+IDForo bigint not null, --FK
+Nombre varchar(75) not null
 
 FOREIGN KEY (IDForo) REFERENCES Foros(IDForo)
 );
@@ -41,19 +43,15 @@ FOREIGN KEY (IDForo) REFERENCES Foros(IDForo)
 CREATE TABLE Comentarios(
 IDComentario bigint identity(1,1) PRIMARY KEY,
 IDHilo bigint NOT NULL , --FK
-IDAutor bigint NOT NULL, --FK
+IDAutor bigint NOT NULL, 
+IDProfesor integer not null,--FK
 Comentario varchar(1000) not null,
 FechaComentario DATETIME not null,
 IDRespuesta bigint null
 
 FOREIGN KEY (IDHilo) REFERENCES HILOS(IDHilo)
---FOREIGN KEY (IDAutor) REFERENCES --NO LA PUEDO HACER PORQUE TODAVIA NO ESTA LA TABLA USUARIOS
+--FOREIGN KEY (IDAutor) REFERENCES --NO LA PUEDO HACER PORQUE TODAVIA NO ESTA LA TABLA Alumno
+--FOREIGN KEY (IDProfesor) REFERENCES --NO LA PUEDO HACER PORQUE TODAVIA NO ESTA LA TABLA Profesor
 );
-
-
-
-
-
-
 
 

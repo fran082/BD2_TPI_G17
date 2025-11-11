@@ -731,3 +731,77 @@ VALUES
 (6, 12, 4.00, 4.00, 1, 0); -- Alumno 12 desaprueba
 
 
+INSERT INTO USUARIOS (Nombre, Apellido, DNI, Mail, Contrasena, FechaNacimiento)
+values 
+('Oscar Dardo','Robledo',10123311,'p.robledo@docente.com','hashODR','1960-10-10'),
+('Juan Jeremias','Casiari',15203111,'p.casiari@docente.com','hashJJC','1975-04-04'),
+('Camila','Yacomucci',22011879,'p.yacomucci@docente.com','hashCY','1999-07-07');
+
+
+INSERT INTO PROFESORES (IDUsuario, FechaIngreso, Sueldo, FechaFinalizacionContrato, Activo)
+VALUES
+(17, '2025-03-01', 150000, '2026-03-01', 1),
+(18, '2025-05-15', 175000, '2026-05-15', 1),
+(19, '2025-09-10', 160000, '2026-09-10', 1);
+
+
+INSERT INTO CURSOSXPROFESOR (IDCurso, IDProfesor, Activo) values
+(51,3,1),
+(69,2,1),
+(61,1,1);
+
+
+INSERT INTO CURSOSXALUMNO (IDCurso, IDAlumno, Activo) VALUES
+-- Curso de masajista (IDCurso = 51)
+(51, 1, 1),
+(51, 7, 1),
+(51, 13, 1),
+(51, 2, 1),
+(51, 8, 1),
+(51, 14, 1),
+
+-- Curso de instalación de redes de internet (IDCurso = 69)
+(69, 3, 1),
+(69, 9, 1),
+(69, 15, 1),
+(69, 4, 1),
+(69, 10, 1),
+
+-- Curso de técnico en computación (IDCurso = 61)
+(61, 5, 1),
+(61, 11, 1),
+(61, 6, 1),
+(61, 12, 1);
+
+
+INSERT INTO CALIFICACIONES (IDAlumno, IDActividad, Nota, NotaFinal)
+VALUES
+-- Cuestionario 1
+(1, 1, 6.00, NULL),   -- Alumno 1 aprueba
+(7, 1, 6.00, NULL),   -- Alumno 7 aprueba
+(13, 1, 6.00, NULL),  -- Alumno 13 aprueba
+
+-- Cuestionario 2
+(2, 2, 4.00, NULL),   -- Alumno 2 desaprueba
+(8, 2, 4.00, NULL),   -- Alumno 8 desaprueba
+(14, 2, 4.00, NULL),  -- Alumno 14 desaprueba
+
+-- Cuestionario 3
+(3, 3, 6.00, NULL),   -- Alumno 3 aprueba
+(9, 3, 6.00, NULL),   -- Alumno 9 aprueba
+(15, 3, 6.00, NULL),  -- Alumno 15 aprueba
+
+-- Cuestionario 4
+(4, 4, 4.00, NULL),   -- Alumno 4 desaprueba
+(10, 4, 4.00, NULL),  -- Alumno 10 desaprueba
+
+-- Cuestionario 5
+(5, 5, 6.00, NULL),   -- Alumno 5 aprueba
+(11, 5, 6.00, NULL),  -- Alumno 11 aprueba
+
+-- Cuestionario 6
+(6, 6, 4.00, NULL),   -- Alumno 6 desaprueba
+(12, 6, 4.00, NULL);  -- Alumno 12 desaprueba
+
+
+

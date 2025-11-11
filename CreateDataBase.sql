@@ -39,19 +39,68 @@ Nombre varchar(75) not null
 
 FOREIGN KEY (IDForo) REFERENCES Foros(IDForo)
 );
-
+-----------------
 CREATE TABLE Comentarios(
 IDComentario bigint identity(1,1) PRIMARY KEY,
 IDHilo bigint NOT NULL , --FK
-IDAutor bigint NOT NULL, 
+IDAlumno bigint NOT NULL, 
 IDProfesor integer not null,--FK
 Comentario varchar(1000) not null,
 FechaComentario DATETIME not null,
-IDRespuesta bigint null
+IDRespuesta bigint null,
 
-FOREIGN KEY (IDHilo) REFERENCES HILOS(IDHilo)
---FOREIGN KEY (IDAutor) REFERENCES --NO LA PUEDO HACER PORQUE TODAVIA NO ESTA LA TABLA Alumno
---FOREIGN KEY (IDProfesor) REFERENCES --NO LA PUEDO HACER PORQUE TODAVIA NO ESTA LA TABLA Profesor
+FOREIGN KEY (IDHilo) REFERENCES HILOS(IDHilo),
+foreign key (IDAlumno) references Alumnos(IDAlumno),
+foreign key (IDProfesor) references PROFESORES(IDProfesor)
 );
 
 
+
+CREATE TABLE PROFESORES(
+IDProfesor integer identity(1,1) PRIMARY KEY NOT NULL,
+IDUsuario bigint not null,
+FechaIngreso date not null,
+Sueldo money not null,
+FechaFinalizacionContrato date null,
+Activo bit not null
+
+foreign key (IDUsuario) references USUARIOS(IDUsuario)
+);
+
+
+CREATE TABLE CURSOSXPROFESOR(
+ID integer identity(1,1) PRIMARY KEY NOT NULL,
+IDCurso integer not null,
+IDProfesor integer not null,
+Activo bit not null
+
+foreign key (IDCurso) references Cursos(IDCurso),
+foreign key (IDProfesor) references PROFESORES(IDProfesor)
+);
+
+CREATE TABLE CURSOSXALUMNO(
+ID integer identity(1,1) PRIMARY KEY NOT NULL,
+IDCurso integer not null,
+IDAlumno bigint not null,
+Activo bit not null,
+
+foreign key (IDCurso) references Cursos(IDCurso),
+foreign key (IDAlumno) references Alumnos(IDAlumno)
+);
+
+
+CREATE TABLE CERTIFICADOS(
+IDCertificado bigint identity(1000,1) PRIMARY KEY not null,
+IDAlumno bigint not null,
+IDProfesor integer not null,
+IDCurso integer not null,
+IDCalificacion decimal (5,2) not null,
+Institucion varchar(100) not null,
+Certificado varchar(100) not null,
+URLVerificacion varchar(100) null,
+
+foreign key (IDAlumno) references Alumnos(IDAlumno),
+foreign key (IDProfesor) references PROFESORES(IDProfesor),
+foreign key (IDCurso) references Cursos(IDCurso)
+--foreign key (IDCalificacion) references CALIFICACIONES(ID)
+);

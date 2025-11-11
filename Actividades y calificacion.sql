@@ -118,6 +118,7 @@ create table CALIFICACIONES (
 	NotaFinal decimal (5,2)
 );
 
+
 create table USUARIOS(
 IDUsuario bigint not null identity(1,1) primary key,
 Nombre varchar(50) not null,
@@ -134,5 +135,26 @@ Sexo varchar(9) not null,
 FechaDeRegistro DateTime not null,
 Activo bit not null
 
-foreign key (IDAlumno) references USUARIOS(IDUsuario)
 );
+
+----El siguiente codigo SOLO SE DEBE EJECUTAR UNA SOLA VEZ
+-- 1. Agregar la columna IDUsuario
+ALTER TABLE Alumnos
+ADD IDUsuario INT NULL;  -- mismo tipo que Usuarios.IDUsuario
+
+-- 2. Actualizar los datos: como coinciden, copiamos el IDAlumno
+UPDATE Alumnos
+SET IDUsuario = IDAlumno;
+
+-- 3. Si todos los alumnos tienen usuario, forzamos NOT NULL
+ALTER TABLE Alumnos
+ALTER COLUMN IDUsuario INT NOT NULL;
+
+ALTER TABLE Alumnos
+ALTER COLUMN IDUsuario BIGINT NOT NULL;
+
+-- 4. Crear la foreign key
+ALTER TABLE Alumnos
+ADD CONSTRAINT FK_Alumnos_Usuarios
+FOREIGN KEY (IDUsuario) REFERENCES Usuarios(IDUsuario);
+

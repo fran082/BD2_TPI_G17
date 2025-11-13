@@ -1,0 +1,79 @@
+--ARCHIVO DE VISTAS
+
+--El término "target" se utiliza en marketing para describir al comprador ideal
+--o al público objetivo que se desea alcanzar con una campaña publicitaria
+--o un producto. 
+
+--13/17 años	Adolescentes, exploración vocacional
+--18/25 años	Jóvenes adultos, formación académica o técnica
+--26/35 años	Profesionales jóvenes, desarrollo de carrera
+--36/50 años	Adultos con experiencia laboral, actualización profesional
+ALTER VIEW VW_TARGET_EDAD AS
+SELECT 
+Curs.Nombre as [Nombre del curso],
+  COUNT(*) AS Inscriptos,
+  SUM(
+    CASE 
+      WHEN DATEDIFF(YEAR, U.FechaNacimiento, GETDATE()) 
+           - CASE 
+               WHEN MONTH(U.FechaNacimiento) > MONTH(GETDATE()) 
+                    OR (MONTH(U.FechaNacimiento) = MONTH(GETDATE()) AND DAY(U.FechaNacimiento) > DAY(GETDATE()))
+               THEN 1 ELSE 0 
+             END BETWEEN 29 AND 31
+      THEN 1 ELSE 0 
+    END
+  ) AS [Personas entre 29 y 31],
+  SUM(
+    CASE 
+      WHEN DATEDIFF(YEAR, U.FechaNacimiento, GETDATE()) 
+           - CASE 
+               WHEN MONTH(U.FechaNacimiento) > MONTH(GETDATE()) 
+                    OR (MONTH(U.FechaNacimiento) = MONTH(GETDATE()) AND DAY(U.FechaNacimiento) > DAY(GETDATE()))
+               THEN 1 ELSE 0 
+             END BETWEEN 32 AND 34
+      THEN 1 ELSE 0 
+    END
+  ) AS [Personas entre 32 y 34],
+  SUM(
+    CASE 
+      WHEN DATEDIFF(YEAR, U.FechaNacimiento, GETDATE()) 
+           - CASE 
+               WHEN MONTH(U.FechaNacimiento) > MONTH(GETDATE()) 
+                    OR (MONTH(U.FechaNacimiento) = MONTH(GETDATE()) AND DAY(U.FechaNacimiento) > DAY(GETDATE()))
+               THEN 1 ELSE 0 
+             END BETWEEN 35 AND 36
+      THEN 1 ELSE 0 
+    END
+  ) AS [Personas entre 35 y 36]
+FROM Alumnos AS Alum
+INNER JOIN CURSOSXALUMNO AS CurAlum ON CurAlum.IDAlumno = Alum.IDAlumno
+INNER JOIN Cursos AS Curs ON Curs.IDCurso = CurAlum.IDCurso
+INNER JOIN Usuarios AS U ON U.IDUsuario = Alum.IDUsuario
+WHERE Curs.IDCurso = 51
+GROUP BY Curs.Nombre;
+
+
+  select * from VW_TARGET_EDAD
+
+
+
+
+  ALTER VIEW SW_PORCENTAJE_APROB_DESAP_CURSO51 AS
+SELECT 
+  Cur.Nombre AS [Nombre del curso], 
+  (SELECT COUNT(*) FROM CURSOSXALUMNO AS CA WHERE CA.IDCurso = 51 ) AS Inscriptos,
+  SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) AS [Cant. Aprob. Examen 1],
+  SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) AS [Cant. Desap. Examen 1],
+    SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) AS [Cant. Aprob. Examen 2],
+  SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) AS [Cant. Desap. Examen 2],
+  CAST(SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS [Porc. Aprob. Examen 1],
+  CAST(SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS [Porc. Desap. Examen 1],
+  CAST(SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS [Porc. Aprob. Examen 2],
+  CAST(SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS [Porc. Desap. Examen 2]
+FROM CALIFICACIONES AS C
+INNER JOIN Cursos AS Cur ON Cur.IDCurso = Cur.IDCurso
+WHERE CUR.IDCurso = 51 AND C.IDActividad IN (1, 2)
+GROUP BY Cur.Nombre;
+
+select * from SW_PORCENTAJE_APROB_DESAP_CURSO51
+

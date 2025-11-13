@@ -591,144 +591,269 @@ VALUES
 
 
 
-INSERT INTO RESPUESTAUSUARIOS (OpcionElegida, Correcta, PuntajeObtenido)
+INSERT INTO RESPUESTAALUMNOS (IDAlumno, OpcionElegida, Correcta, PuntajeObtenido)
 VALUES
+--RINDEN LOS 6 ALUMNOS EL CUESTIONARIO DEL CURSO MASAJISTA (IDCURSO = 51)
 -- Alumno 1 (Cuestionario 1, aprueba: 3 correctas)
-( 1, 1, 2.00),   -- P1 correcta
-( 5, 0, 0.00),   -- P2 incorrecta
-( 7, 1, 2.00),   -- P3 correcta
-( 12, 0, 0.00),  -- P4 incorrecta
-( 13, 1, 2.00),  -- P5 correcta
-
--- Alumno 2 (Cuestionario 2, desaprueba: 2 correctas)
-( 16, 1, 2.00),  -- P6 correcta
-( 20, 0, 0.00),  -- P7 incorrecta
-( 22, 1, 2.00),  -- P8 correcta
-( 26, 0, 0.00),  -- P9 incorrecta
-( 29, 0, 0.00),  -- P10 incorrecta
-
--- Alumno 3 (Cuestionario 3, aprueba: 3 correctas)
-( 31, 1, 2.00),  -- P11 correcta
-( 34, 0, 0.00),  -- P12 incorrecta
-( 37, 1, 2.00),  -- P13 correcta
-( 40, 1, 2.00),  -- P14 correcta
-( 45, 0, 0.00),  -- P15 incorrecta
-
--- Alumno 4 (Cuestionario 4, desaprueba: 2 correctas)
-( 46, 1, 2.00),  -- P16 correcta
-( 50, 0, 0.00),  -- P17 incorrecta
-( 52, 1, 2.00),  -- P18 correcta
-( 55, 0, 0.00),  -- P19 incorrecta
-( 58, 0, 0.00),  -- P20 incorrecta
-
--- Alumno 5 (Cuestionario 5, aprueba: 3 correctas)
-( 61, 1, 2.00),  -- P21 correcta
-( 65, 0, 0.00),  -- P22 incorrecta
-( 67, 1, 2.00),  -- P23 correcta
-( 70, 1, 2.00),  -- P24 correcta
-( 74, 0, 0.00),  -- P25 incorrecta
-
--- Alumno 6 (Cuestionario 6, desaprueba: 2 correctas)
-( 76, 1, 2.00),  -- P26 correcta
-( 80, 0, 0.00),  -- P27 incorrecta
-( 82, 1, 2.00),  -- P28 correcta
-( 85, 0, 0.00),  -- P29 incorrecta
-( 88, 0, 0.00),  -- P30 incorrecta
+(1, 1, 1, 2.00),   -- P1 correcta
+(1, 5, 0, 0.00),   -- P2 incorrecta
+(1, 7, 1, 2.00),   -- P3 correcta
+(1, 12, 0, 0.00),  -- P4 incorrecta
+(1, 13, 1, 2.00),  -- P5 correcta
 
 -- Alumno 7 (Cuestionario 1, aprueba: 3 correctas)
-( 1, 1, 2.00),   -- P1 correcta
-( 6, 0, 0.00),   -- P2 incorrecta
-( 7, 1, 2.00),   -- P3 correcta
-( 10, 1, 2.00),  -- P4 correcta
-( 15, 0, 0.00),  -- P5 incorrecta
-
--- Alumno 8 (Cuestionario 2, desaprueba: 2 correctas)
-( 16, 1, 2.00),  -- P6 correcta
-( 17, 0, 0.00),  -- P7 incorrecta
-( 22, 1, 2.00),  -- P8 correcta
-( 25, 0, 0.00),  -- P9 incorrecta
-( 30, 0, 0.00),  -- P10 incorrecta
-
--- Alumno 9 (Cuestionario 3, aprueba: 3 correctas)
-( 31, 1, 2.00),  -- P11 correcta
-( 35, 0, 0.00),  -- P12 incorrecta
-( 37, 1, 2.00),  -- P13 correcta
-( 39, 0, 0.00),  -- P14 incorrecta
-( 43, 1, 2.00),  -- P15 correcta
-
--- Alumno 10 (Cuestionario 4, desaprueba: 2 correctas)
-( 46, 1, 2.00),  -- P16 correcta
-( 49, 0, 0.00),  -- P17 incorrecta
-( 52, 1, 2.00),  -- P18 correcta
-( 55, 0, 0.00),  -- P19 incorrecta
-( 57, 0, 0.00),  -- P20 incorrecta
-
--- Alumno 11 (Cuestionario 5, aprueba: 3 correctas)
-( 61, 1, 2.00),  -- P21 correcta
-( 64, 0, 0.00),  -- P22 incorrecta
-( 67, 1, 2.00),  -- P23 correcta
-( 70, 1, 2.00),  -- P24 correcta
-( 73, 0, 0.00),  -- P25 incorrecta
-
--- Alumno 12 (Cuestionario 6, desaprueba: 2 correctas)
-( 76, 1, 2.00),  -- P26 correcta
-( 79, 0, 0.00),  -- P27 incorrecta
-( 82, 1, 2.00),  -- P28 correcta
-( 84, 0, 0.00),  -- P29 incorrecta
-( 89, 0, 0.00),  -- P30 incorrecta
+(7, 1, 1, 2.00),   -- P1 correcta
+(7, 6, 0, 0.00),   -- P2 incorrecta
+(7, 7, 1, 2.00),   -- P3 correcta
+(7, 10, 1, 2.00),  -- P4 correcta
+(7, 15, 0, 0.00),  -- P5 incorrecta
 
 -- Alumno 13 (Cuestionario 1, aprueba: 3 correctas)
-( 1, 1, 2.00),   -- P1 correcta
-( 4, 1, 2.00),   -- P2 correcta
-( 8, 0, 0.00),   -- P3 incorrecta
-( 10, 1, 2.00),  -- P4 correcta
-( 14, 0, 0.00),  -- P5 incorrecta
+(13, 1, 1, 2.00),   -- P1 correcta
+(13, 4, 1, 2.00),   -- P2 correcta
+(13, 8, 0, 0.00),   -- P3 incorrecta
+(13, 10, 1, 2.00),  -- P4 correcta
+(13, 14, 0, 0.00),  -- P5 incorrecta
+
+-- Alumno 2 (Cuestionario 1, aprueba: 3 correctas)
+(2, 1, 1, 2.00),   -- P1 correcta
+(2, 5, 0, 0.00),   -- P2 incorrecta
+(2, 7, 1, 2.00),   -- P3 correcta
+(2, 12, 0, 0.00),  -- P4 incorrecta
+(2, 13, 1, 2.00),  -- P5 correcta
+
+-- Alumno 8 (Cuestionario 1, aprueba: 3 correctas)
+(8, 1, 1, 2.00),   -- P1 correcta
+(8, 6, 0, 0.00),   -- P2 incorrecta
+(8, 7, 1, 2.00),   -- P3 correcta
+(8, 10, 1, 2.00),  -- P4 correcta
+(8, 15, 0, 0.00),  -- P5 incorrecta
+
+-- Alumno 14 (Cuestionario 1, aprueba: 3 correctas)
+(14, 1, 1, 2.00),   -- P1 correcta
+(14, 4, 1, 2.00),   -- P2 correcta
+(14, 8, 0, 0.00),   -- P3 incorrecta
+(14, 10, 1, 2.00),  -- P4 correcta
+(14, 14, 0, 0.00),  -- P5 incorrecta
+
+--RINDEN LOS 6 ALUMNOS EL CUESTIONARIO DEL CURSO DE MASAJISTA (IDCURSO = 51)
+-- Alumno 1 (Cuestionario 2, desaprueba: 2 correctas)
+(1, 16, 1, 2.00),  -- P6 correcta
+(1, 19, 0, 0.00),  -- P7 incorrecta
+(1, 22, 1, 2.00),  -- P8 correcta
+(1, 26, 0, 0.00),  -- P9 incorrecta
+(1, 28, 0, 0.00),  -- P10 incorrecta
+
+-- Alumno 7 (Cuestionario 2, desaprueba: 2 correctas)
+(7, 16, 1, 2.00),  -- P6 correcta
+(7, 20, 0, 0.00),  -- P7 incorrecta
+(7, 22, 1, 2.00),  -- P8 correcta
+(7, 26, 0, 0.00),  -- P9 incorrecta
+(7, 29, 0, 0.00),  -- P10 incorrecta
+
+-- Alumno 13 (Cuestionario 2, desaprueba: 2 correctas)
+(13, 16, 1, 2.00),  -- P6 correcta
+(13, 17, 0, 0.00),  -- P7 incorrecta
+(13, 22, 1, 2.00),  -- P8 correcta
+(13, 25, 0, 0.00),  -- P9 incorrecta
+(13, 30, 0, 0.00),  -- P10 incorrecta
+
+-- Alumno 2 (Cuestionario 2, desaprueba: 2 correctas)
+(2, 16, 1, 2.00),  -- P6 correcta
+(2, 19, 0, 0.00),  -- P7 incorrecta
+(2, 22, 1, 2.00),  -- P8 correcta
+(2, 26, 0, 0.00),  -- P9 incorrecta
+(2, 28, 0, 0.00),  -- P10 incorrecta
+
+-- Alumno 8 (Cuestionario 2, desaprueba: 2 correctas)
+(8, 16, 1, 2.00),  -- P6 correcta
+(8, 20, 0, 0.00),  -- P7 incorrecta
+(8, 22, 1, 2.00),  -- P8 correcta
+(8, 26, 0, 0.00),  -- P9 incorrecta
+(8, 29, 0, 0.00),  -- P10 incorrecta
 
 -- Alumno 14 (Cuestionario 2, desaprueba: 2 correctas)
-( 16, 1, 2.00),  -- P6 correcta
-( 19, 0, 0.00),  -- P7 incorrecta
-( 22, 1, 2.00),  -- P8 correcta
-( 26, 0, 0.00),  -- P9 incorrecta
-( 28, 0, 0.00),  -- P10 incorrecta
+(14, 16, 1, 2.00),  -- P6 correcta
+(14, 17, 0, 0.00),  -- P7 incorrecta
+(14, 22, 1, 2.00),  -- P8 correcta
+(14, 25, 0, 0.00),  -- P9 incorrecta
+(14, 30, 0, 0.00),  -- P10 incorrecta
+
+--RINDE LOS 5 ALUMNOS EL CUESTIONARIO DEL CURSO REDES DE INTERNET (IDCURSO = 69)
+-- Alumno 3 (Cuestionario 3, aprueba: 3 correctas)
+(3, 31, 1, 2.00),  -- P11 correcta
+(3, 34, 0, 0.00),  -- P12 incorrecta
+(3, 37, 1, 2.00),  -- P13 correcta
+(3, 40, 1, 2.00),  -- P14 correcta
+(3, 45, 0, 0.00),  -- P15 incorrecta
+
+-- Alumno 9 (Cuestionario 3, aprueba: 3 correctas)
+(9, 31, 1, 2.00),  -- P11 correcta
+(9, 35, 0, 0.00),  -- P12 incorrecta
+(9, 37, 1, 2.00),  -- P13 correcta
+(9, 39, 0, 0.00),  -- P14 incorrecta
+(9, 43, 1, 2.00),  -- P15 correcta
 
 -- Alumno 15 (Cuestionario 3, aprueba: 3 correctas)
-( 31, 1, 2.00),  -- P11 correcta
-( 33, 0, 0.00),  -- P12 incorrecta
-( 37, 1, 2.00),  -- P13 correcta
-( 40, 1, 2.00),  -- P14 correcta
-( 44, 0, 0.00);  -- P15 incorrecta
+(15, 31, 1, 2.00),  -- P11 correcta
+(15, 33, 0, 0.00),  -- P12 incorrecta
+(15, 37, 1, 2.00),  -- P13 correcta
+(15, 40, 1, 2.00),  -- P14 correcta
+(15, 44, 0, 0.00),  -- P15 incorrecta
 
+-- Alumno 4 (Cuestionario 3, aprueba: 3 correctas)
+(4, 31, 1, 2.00),  -- P11 correcta
+(4, 35, 0, 0.00),  -- P12 incorrecta
+(4, 37, 1, 2.00),  -- P13 correcta
+(4, 39, 0, 0.00),  -- P14 incorrecta
+(4, 43, 1, 2.00),  -- P15 correcta
 
+-- Alumno 10 (Cuestionario 3, aprueba: 3 correctas)
+(10, 31, 1, 2.00),  -- P11 correcta
+(10, 33, 0, 0.00),  -- P12 incorrecta
+(10, 37, 1, 2.00),  -- P13 correcta
+(10, 40, 1, 2.00),  -- P14 correcta
+(10, 44, 0, 0.00),  -- P15 incorrecta
+
+--RINDE LOS 5 ALUMNOS EL CUESTIONARIO DEL CURSO REDES DE INTERNET (IDCURSO = 69)
+-- Alumno 3 (Cuestionario 4, desaprueba: 2 correctas)
+(3, 46, 1, 2.00),  -- P16 correcta
+(3, 50, 0, 0.00),  -- P17 incorrecta
+(3, 52, 1, 2.00),  -- P18 correcta
+(3, 55, 0, 0.00),  -- P19 incorrecta
+(3, 58, 0, 0.00),  -- P20 incorrecta
+
+-- Alumno 9 (Cuestionario 4, desaprueba: 2 correctas)
+(9, 46, 1, 2.00),  -- P16 correcta
+(9, 49, 0, 0.00),  -- P17 incorrecta
+(9, 52, 1, 2.00),  -- P18 correcta
+(9, 55, 0, 0.00),  -- P19 incorrecta
+(9, 57, 0, 0.00),  -- P20 incorrecta
+
+-- Alumno 15 (Cuestionario 4, desaprueba: 2 correctas)
+(15, 46, 1, 2.00),  -- P16 correcta
+(15, 50, 0, 0.00),  -- P17 incorrecta
+(15, 52, 1, 2.00),  -- P18 correcta
+(15, 55, 0, 0.00),  -- P19 incorrecta
+(15, 58, 0, 0.00),  -- P20 incorrecta
+
+-- Alumno 4 (Cuestionario 4, desaprueba: 2 correctas)
+(4, 46, 1, 2.00),  -- P16 correcta
+(4, 49, 0, 0.00),  -- P17 incorrecta
+(4, 52, 1, 2.00),  -- P18 correcta
+(4, 55, 0, 0.00),  -- P19 incorrecta
+(4, 57, 0, 0.00),  -- P20 incorrecta
+
+-- Alumno 10 (Cuestionario 4, desaprueba: 2 correctas)
+(10, 46, 1, 2.00),  -- P16 correcta
+(10, 49, 0, 0.00),  -- P17 incorrecta
+(10, 52, 1, 2.00),  -- P18 correcta
+(10, 55, 0, 0.00),  -- P19 incorrecta
+(10, 57, 0, 0.00),  -- P20 incorrecta
+
+--RINDE LOS 4 ALUMNOS DEL CURSO TECNICO EN COMPUTACION (IDCURSO = 61)
+-- Alumno 5 (Cuestionario 5, aprueba: 3 correctas)
+(5, 61, 1, 2.00),  -- P21 correcta
+(5, 65, 0, 0.00),  -- P22 incorrecta
+(5, 67, 1, 2.00),  -- P23 correcta
+(5, 70, 1, 2.00),  -- P24 correcta
+(5, 74, 0, 0.00),  -- P25 incorrecta
+
+-- Alumno 11 (Cuestionario 5, aprueba: 3 correctas)
+(11, 61, 1, 2.00),  -- P21 correcta
+(11, 64, 0, 0.00),  -- P22 incorrecta
+(11, 67, 1, 2.00),  -- P23 correcta
+(11, 70, 1, 2.00),  -- P24 correcta
+(11, 73, 0, 0.00),  -- P25 incorrecta
+
+-- Alumno 6 (Cuestionario 5, aprueba: 3 correctas)
+(6, 61, 1, 2.00),  -- P21 correcta
+(6, 65, 0, 0.00),  -- P22 incorrecta
+(6, 67, 1, 2.00),  -- P23 correcta
+(6, 70, 1, 2.00),  -- P24 correcta
+(6, 74, 0, 0.00),  -- P25 incorrecta
+
+-- Alumno 12 (Cuestionario 5, aprueba: 3 correctas)
+(12, 61, 1, 2.00),  -- P21 correcta
+(12, 64, 0, 0.00),  -- P22 incorrecta
+(12, 67, 1, 2.00),  -- P23 correcta
+(12, 70, 1, 2.00),  -- P24 correcta
+(12, 73, 0, 0.00),  -- P25 incorrecta
+
+--RINDEN LOS 4 ALUMNOS DEL CURSO TECNICO EN COMPUTACION (IDCURSO = 61)
+-- Alumno 5 (Cuestionario 6, desaprueba: 2 correctas)
+(5, 76, 1, 2.00),  -- P26 correcta
+(5, 80, 0, 0.00),  -- P27 incorrecta
+(5, 82, 1, 2.00),  -- P28 correcta
+(5, 85, 0, 0.00),  -- P29 incorrecta
+(5, 88, 0, 0.00),  -- P30 incorrecta
+
+-- Alumno 11 (Cuestionario 6, desaprueba: 2 correctas)
+(11, 76, 1, 2.00),  -- P26 correcta
+(11, 79, 0, 0.00),  -- P27 incorrecta
+(11, 82, 1, 2.00),  -- P28 correcta
+(11, 84, 0, 0.00),  -- P29 incorrecta
+(11, 89, 0, 0.00),  -- P30 incorrecta
+
+-- Alumno 6 (Cuestionario 6, desaprueba: 2 correctas)
+(6, 76, 1, 2.00),  -- P26 correcta
+(6, 80, 0, 0.00),  -- P27 incorrecta
+(6, 82, 1, 2.00),  -- P28 correcta
+(6, 85, 0, 0.00),  -- P29 incorrecta
+(6, 88, 0, 0.00),  -- P30 incorrecta
+
+-- Alumno 12 (Cuestionario 6, desaprueba: 2 correctas)
+(12, 76, 1, 2.00),  -- P26 correcta
+(12, 79, 0, 0.00),  -- P27 incorrecta
+(12, 82, 1, 2.00),  -- P28 correcta
+(12, 84, 0, 0.00),  -- P29 incorrecta
+(12, 89, 0, 0.00);  -- P30 incorrecta
 
 
 INSERT INTO RESULTADOCUESTIONARIO (IDCuestionario, IDAlumno, PuntajeObtenido, PuntajeMaximo, Intento, Aprobado)
 VALUES
--- Cuestionario 1
-(1, 1, 6.00, 6.00, 1, 1),  -- Alumno 1 aprueba
-(1, 7, 6.00, 6.00, 1, 1),  -- Alumno 7 aprueba
-(1, 13, 6.00, 6.00, 1, 1), -- Alumno 13 aprueba
+-- Cuestionario 1 (Curso Masajista)
+(1, 1, 6.00, 6.00, 1, 1),
+(1, 7, 6.00, 6.00, 1, 1),
+(1, 13, 6.00, 6.00, 1, 1),
+(1, 2, 6.00, 6.00, 1, 1),
+(1, 8, 6.00, 6.00, 1, 1),
+(1, 14, 6.00, 6.00, 1, 1),
 
--- Cuestionario 2
-(2, 2, 4.00, 4.00, 1, 0),  -- Alumno 2 desaprueba
-(2, 8, 4.00, 4.00, 1, 0),  -- Alumno 8 desaprueba
-(2, 14, 4.00, 4.00, 1, 0), -- Alumno 14 desaprueba
+-- Cuestionario 2 (Curso Masajista)
+(2, 1, 4.00, 4.00, 1, 0),
+(2, 7, 4.00, 4.00, 1, 0),
+(2, 13, 4.00, 4.00, 1, 0),
+(2, 2, 4.00, 4.00, 1, 0),
+(2, 8, 4.00, 4.00, 1, 0),
+(2, 14, 4.00, 4.00, 1, 0),
 
--- Cuestionario 3
-(3, 3, 6.00, 6.00, 1, 1),  -- Alumno 3 aprueba
-(3, 9, 6.00, 6.00, 1, 1),  -- Alumno 9 aprueba
-(3, 15, 6.00, 6.00, 1, 1), -- Alumno 15 aprueba
+-- Cuestionario 3 (Curso Redes de Internet)
+(3, 3, 6.00, 6.00, 1, 1),
+(3, 9, 6.00, 6.00, 1, 1),
+(3, 15, 6.00, 6.00, 1, 1),
+(3, 4, 6.00, 6.00, 1, 1),
+(3, 10, 6.00, 6.00, 1, 1),
 
--- Cuestionario 4
-(4, 4, 4.00, 4.00, 1, 0),  -- Alumno 4 desaprueba
-(4, 10, 4.00, 4.00, 1, 0), -- Alumno 10 desaprueba
+-- Cuestionario 4 (Curso Redes de Internet)
+(4, 3, 4.00, 4.00, 1, 0),
+(4, 9, 4.00, 4.00, 1, 0),
+(4, 15, 4.00, 4.00, 1, 0),
+(4, 4, 4.00, 4.00, 1, 0),
+(4, 10, 4.00, 4.00, 1, 0),
 
--- Cuestionario 5
-(5, 5, 6.00, 6.00, 1, 1),  -- Alumno 5 aprueba
-(5, 11, 6.00, 6.00, 1, 1), -- Alumno 11 aprueba
+-- Cuestionario 5 (Curso Técnico en Computación)
+(5, 5, 6.00, 6.00, 1, 1),
+(5, 11, 6.00, 6.00, 1, 1),
+(5, 6, 6.00, 6.00, 1, 1),
+(5, 12, 6.00, 6.00, 1, 1),
 
--- Cuestionario 6
-(6, 6, 4.00, 4.00, 1, 0),  -- Alumno 6 desaprueba
-(6, 12, 4.00, 4.00, 1, 0); -- Alumno 12 desaprueba
+-- Cuestionario 6 (Curso Técnico en Computación)
+(6, 5, 4.00, 4.00, 1, 0),
+(6, 11, 4.00, 4.00, 1, 0),
+(6, 6, 4.00, 4.00, 1, 0),
+(6, 12, 4.00, 4.00, 1, 0);
+
 
 
 INSERT INTO USUARIOS (Nombre, Apellido, DNI, Mail, Contrasena, FechaNacimiento)
@@ -776,32 +901,63 @@ INSERT INTO CURSOSXALUMNO (IDCurso, IDAlumno, Activo) VALUES
 
 INSERT INTO CALIFICACIONES (IDAlumno, IDActividad, Nota, NotaFinal)
 VALUES
--- Cuestionario 1
-(1, 1, 6.00, NULL),   -- Alumno 1 aprueba
-(7, 1, 6.00, NULL),   -- Alumno 7 aprueba
-(13, 1, 6.00, NULL),  -- Alumno 13 aprueba
+-- Curso Masajista (Cuestionarios 1 y 2)
+(1, 1, 6.00, 5.00),
+(1, 2, 4.00, 5.00),
+(7, 1, 6.00, 5.00),
+(7, 2, 4.00, 5.00),
+(13, 1, 6.00, 5.00),
+(13, 2, 4.00, 5.00),
+(2, 1, 6.00, 5.00),
+(2, 2, 4.00, 5.00),
+(8, 1, 6.00, 5.00),
+(8, 2, 4.00, 5.00),
+(14, 1, 6.00, 5.00),
+(14, 2, 4.00, 5.00),
 
--- Cuestionario 2
-(2, 2, 4.00, NULL),   -- Alumno 2 desaprueba
-(8, 2, 4.00, NULL),   -- Alumno 8 desaprueba
-(14, 2, 4.00, NULL),  -- Alumno 14 desaprueba
+-- Curso Redes de Internet (Cuestionarios 3 y 4)
+(3, 3, 6.00, 5.00),
+(3, 4, 4.00, 5.00),
+(9, 3, 6.00, 5.00),
+(9, 4, 4.00, 5.00),
+(15, 3, 6.00, 5.00),
+(15, 4, 4.00, 5.00),
+(4, 3, 6.00, 5.00),
+(4, 4, 4.00, 5.00),
+(10, 3, 6.00, 5.00),
+(10, 4, 4.00, 5.00),
 
--- Cuestionario 3
-(3, 3, 6.00, NULL),   -- Alumno 3 aprueba
-(9, 3, 6.00, NULL),   -- Alumno 9 aprueba
-(15, 3, 6.00, NULL),  -- Alumno 15 aprueba
-
--- Cuestionario 4
-(4, 4, 4.00, NULL),   -- Alumno 4 desaprueba
-(10, 4, 4.00, NULL),  -- Alumno 10 desaprueba
-
--- Cuestionario 5
-(5, 5, 6.00, NULL),   -- Alumno 5 aprueba
-(11, 5, 6.00, NULL),  -- Alumno 11 aprueba
-
--- Cuestionario 6
-(6, 6, 4.00, NULL),   -- Alumno 6 desaprueba
-(12, 6, 4.00, NULL);  -- Alumno 12 desaprueba
+-- Curso Técnico en Computación (Cuestionarios 5 y 6)
+(5, 5, 6.00, 5.00),
+(5, 6, 4.00, 5.00),
+(11, 5, 6.00, 5.00),
+(11, 6, 4.00, 5.00),
+(6, 5, 6.00, 5.00),
+(6, 6, 4.00, 5.00),
+(12, 5, 6.00, 5.00),
+(12, 6, 4.00, 5.00);
 
 
+INSERT INTO CERTIFICADOS (IDAlumno, IDProfesor, IDCurso, IDCalificacion, Institucion, Certificado)
+VALUES
+-- Curso Masajista (Profesor 3, IDCurso = 51)
+(1, 3, 51, 16, 'Cursos del Sol', 'certificado de finalización'),
+(7, 3, 51, 18, 'Cursos del Sol', 'certificado de finalización'),
+(13, 3, 51, 20, 'Cursos del Sol', 'certificado de finalización'),
+(2, 3, 51, 22, 'Cursos del Sol', 'certificado de finalización'),
+(8, 3, 51, 24, 'Cursos del Sol', 'certificado de finalización'),
+(14, 3, 51, 26, 'Cursos del Sol', 'certificado de finalización'),
+
+-- Curso Redes de Internet (Profesor 2, IDCurso = 69)
+(3, 2, 69, 28, 'Cursos del Sol', 'certificado de finalización'),
+(9, 2, 69, 30, 'Cursos del Sol', 'certificado de finalización'),
+(15, 2, 69, 32, 'Cursos del Sol', 'certificado de finalización'),
+(4, 2, 69, 34, 'Cursos del Sol', 'certificado de finalización'),
+(10, 2, 69, 36, 'Cursos del Sol', 'certificado de finalización'),
+
+-- Curso Técnico en Computación (Profesor 1, IDCurso = 61)
+(5, 1, 61, 38, 'Cursos del Sol', 'certificado de finalización'),
+(11, 1, 61, 40, 'Cursos del Sol', 'certificado de finalización'),
+(6, 1, 61, 42, 'Cursos del Sol', 'certificado de finalización'),
+(12, 1, 61, 44, 'Cursos del Sol', 'certificado de finalización');
 

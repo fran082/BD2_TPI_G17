@@ -104,3 +104,10 @@ foreign key (IDProfesor) references PROFESORES(IDProfesor),
 foreign key (IDCurso) references Cursos(IDCurso)
 --foreign key (IDCalificacion) references CALIFICACIONES(ID)
 );
+
+ALTER TABLE CERTIFICADOS
+ALTER COLUMN IDCalificacion BIGINT NOT NULL;
+
+ALTER TABLE CERTIFICADOS
+ADD CONSTRAINT FK_Certificados_Calificaciones
+FOREIGN KEY (IDCalificacion) REFERENCES CALIFICACIONES(ID);

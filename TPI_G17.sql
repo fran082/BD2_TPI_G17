@@ -201,21 +201,28 @@ foreign key (IDCurso) references Cursos(IDCurso),
 foreign key (IDCalificacion) references CALIFICACIONES(ID)
 );
 
-ALTER TABLE Alumnos
-ADD IDUsuario INT NULL;  -- mismo tipo que Usuarios.IDUsuario
+--ALTER TABLE Alumnos
+--ADD IDUsuario INT NULL;  -- mismo tipo que Usuarios.IDUsuario
 
 -- 2. Actualizar los datos: como coinciden, copiamos el IDAlumno
-UPDATE ALUMNOS
-SET IDUsuario = IDAlumno;
+--UPDATE ALUMNOS
+--SET IDUsuario = IDAlumno;
 
 -- 3. Si todos los alumnos tienen usuario, forzamos NOT NULL
-ALTER TABLE Alumnos
-ALTER COLUMN IDUsuario INT NOT NULL;
+--ALTER TABLE Alumnos
+--ALTER COLUMN IDUsuario INT NOT NULL;
 
-ALTER TABLE Alumnos
-ALTER COLUMN IDUsuario BIGINT NOT NULL;
+--ALTER TABLE Alumnos
+--ALTER COLUMN IDUsuario BIGINT NOT NULL;
 
 -- 4. Crear la foreign key
-ALTER TABLE Alumnos
-ADD CONSTRAINT FK_Alumnos_Usuarios
-FOREIGN KEY (IDUsuario) REFERENCES Usuarios(IDUsuario);
+--ALTER TABLE Alumnos
+--ADD CONSTRAINT FK_Alumnos_Usuarios
+--FOREIGN KEY (IDUsuario) REFERENCES Usuarios(IDUsuario);
+
+---cambios del ultimo commit
+--ALTER TABLE CURSOSXALUMNO 
+--ADD FechaInscripcion date not null default cast (getdate() as date); 
+
+--alter table CURSOS 
+--ADD Activo bit not null default 1;

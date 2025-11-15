@@ -53,26 +53,26 @@ INSERT INTO Comisiones (NumeroComision, Turno, CantDias, HorarioComienzo, Horari
 -- Cada comisión del 1 al 20 tendrá 3 foros
 
 INSERT INTO Foros (IDComision, Nombre) VALUES
-(1,'Novedades'), (1,'Cafetería'), (1,'Cafetería'),
-(2,'Novedades'), (2,'Cafetería'), (2,'Cafetería'),
-(3,'Novedades'), (3,'Cafetería'), (3,'Cafetería'),
-(4,'Novedades'), (4,'Cafetería'), (4,'Cafetería'),
-(5,'Novedades'), (5,'Cafetería'), (5,'Cafetería'),
-(6,'Novedades'), (6,'Cafetería'), (6,'Cafetería'),
-(7,'Novedades'), (7,'Cafetería'), (7,'Cafetería'),
-(8,'Novedades'), (8,'Cafetería'), (8,'Cafetería'),
-(9,'Novedades'), (9,'Cafetería'), (9,'Cafetería'),
-(10,'Novedades'), (10,'Cafetería'), (10,'Cafetería'),
-(11,'Novedades'), (11,'Cafetería'), (11,'Cafetería'),
-(12,'Novedades'), (12,'Cafetería'), (12,'Cafetería'),
-(13,'Novedades'), (13,'Cafetería'), (13,'Cafetería'),
-(14,'Novedades'), (14,'Cafetería'), (14,'Cafetería'),
-(15,'Novedades'), (15,'Cafetería'), (15,'Cafetería'),
-(16,'Novedades'), (16,'Cafetería'), (16,'Cafetería'),
-(17,'Novedades'), (17,'Cafetería'), (17,'Cafetería'),
-(18,'Novedades'), (18,'Cafetería'), (18,'Cafetería'),
-(19,'Novedades'), (19,'Cafetería'), (19,'Cafetería'),
-(20,'Novedades'), (20,'Cafetería'), (20,'Cafetería');
+(1,'Novedades'), (1,'Cafetería'), (1,'Foro de Dudas'),
+(2,'Novedades'), (2,'Cafetería'), (2,'Foro de Dudas'),
+(3,'Novedades'), (3,'Cafetería'), (3,'Foro de Dudas'),
+(4,'Novedades'), (4,'Cafetería'), (4,'Foro de Dudas'),
+(5,'Novedades'), (5,'Cafetería'), (5,'Foro de Dudas'),
+(6,'Novedades'), (6,'Cafetería'), (6,'Foro de Dudas'),
+(7,'Novedades'), (7,'Cafetería'), (7,'Foro de Dudas'),
+(8,'Novedades'), (8,'Cafetería'), (8,'Foro de Dudas'),
+(9,'Novedades'), (9,'Cafetería'), (9,'Foro de Dudas'),
+(10,'Novedades'), (10,'Cafetería'), (10,'Foro de Dudas'),
+(11,'Novedades'), (11,'Cafetería'), (11,'Foro de Dudas'),
+(12,'Novedades'), (12,'Cafetería'), (12,'Foro de Dudas'),
+(13,'Novedades'), (13,'Cafetería'), (13,'Foro de Dudas'),
+(14,'Novedades'), (14,'Cafetería'), (14,'Foro de Dudas'),
+(15,'Novedades'), (15,'Cafetería'), (15,'Foro de Dudas'),
+(16,'Novedades'), (16,'Cafetería'), (16,'Foro de Dudas'),
+(17,'Novedades'), (17,'Cafetería'), (17,'Foro de Dudas'),
+(18,'Novedades'), (18,'Cafetería'), (18,'Foro de Dudas'),
+(19,'Novedades'), (19,'Cafetería'), (19,'Foro de Dudas'),
+(20,'Novedades'), (20,'Cafetería'), (20,'Foro de Dudas');
 
 INSERT INTO Foros (IDComision, Nombre) VALUES
 (2,  'Examen 1'),   
@@ -353,6 +353,10 @@ values
 ('Juan Jeremias','Casiari',15203111,'p.casiari@docente.com','hashJJC','1975-04-04'),
 ('Camila','Yacomucci',22011879,'p.yacomucci@docente.com','hashCY','1999-07-07');
 
+--ultimo commit
+insert into usuarios (Nombre,Apellido,DNI,Mail,Contrasena,FechaNacimiento) values
+('Tomas', 'Rodriguez', 42545333, 'tomas.rod@gmail.com', 'hash_tomas_19', '2000-05-21')
+
 --------------
 ---PROFESORES
 --------------
@@ -384,6 +388,10 @@ VALUES
 ('Masculino', GETDATE(), 1, 13),
 ('Femenino',  GETDATE(), 1, 14),
 ('Masculino', GETDATE(), 1, 15);
+
+-- ultimo commit
+insert into ALUMNOS (Sexo,FechaDeRegistro,Activo,IDUsuario) values
+('Masculino', GETDATE(),1,19)
 
 --------------
 --ACTIVIDADES

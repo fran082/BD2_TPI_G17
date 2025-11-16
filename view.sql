@@ -49,31 +49,39 @@ FROM Alumnos AS Alum
 INNER JOIN CURSOSXALUMNO AS CurAlum ON CurAlum.IDAlumno = Alum.IDAlumno
 INNER JOIN Cursos AS Curs ON Curs.IDCurso = CurAlum.IDCurso
 INNER JOIN Usuarios AS U ON U.IDUsuario = Alum.IDUsuario
-WHERE Curs.IDCurso = 51
 GROUP BY Curs.Nombre;
 
-
+--Por favor ejecutar la siguiente línea para ver la vista
   select * from VW_TARGET_EDAD
 
+  ---------------------------------------------------------------------------------
+  --_________________________________________________________________________________
+--------------------------------------------------------------------------------------
 
-
-
-  ALTER VIEW SW_PORCENTAJE_APROB_DESAP_CURSO51 AS
+CREATE VIEW VW_PORCENTAJE_APROB_DESAP_CURSO51 AS
 SELECT 
   Cur.Nombre AS [Nombre del curso], 
   (SELECT COUNT(*) FROM CURSOSXALUMNO AS CA WHERE CA.IDCurso = 51 ) AS Inscriptos,
   SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) AS [Cant. Aprob. Examen 1],
   SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) AS [Cant. Desap. Examen 1],
-    SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) AS [Cant. Aprob. Examen 2],
+  SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) AS [Cant. Aprob. Examen 2],
   SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) AS [Cant. Desap. Examen 2],
-  CAST(SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS [Porc. Aprob. Examen 1],
-  CAST(SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS [Porc. Desap. Examen 1],
-  CAST(SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS [Porc. Aprob. Examen 2],
-  CAST(SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) * 100.0 / COUNT(*) AS DECIMAL(5,2)) AS [Porc. Desap. Examen 2]
+  CAST(SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) * 100.0 /
+       NULLIF(SUM(CASE WHEN C.IDActividad = 1 THEN 1 ELSE 0 END),0) AS DECIMAL(5,2))
+	   AS [Porc. Aprob. Examen 1],
+  CAST(SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 1 THEN 1 ELSE 0 END) * 100.0 /
+       NULLIF(SUM(CASE WHEN C.IDActividad = 1 THEN 1 ELSE 0 END),0) AS DECIMAL(5,2))
+	   AS [Porc. Desap. Examen 1],
+  CAST(SUM(CASE WHEN C.Nota >= 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) * 100.0 /
+       NULLIF(SUM(CASE WHEN C.IDActividad = 2 THEN 1 ELSE 0 END),0) AS DECIMAL(5,2))
+	   AS [Porc. Aprob. Examen 2],
+  CAST(SUM(CASE WHEN C.Nota < 6 AND C.IDActividad = 2 THEN 1 ELSE 0 END) * 100.0 /
+       NULLIF(SUM(CASE WHEN C.IDActividad = 2 THEN 1 ELSE 0 END),0) AS DECIMAL(5,2))
+	   AS [Porc. Desap. Examen 2]
 FROM CALIFICACIONES AS C
 INNER JOIN Cursos AS Cur ON Cur.IDCurso = Cur.IDCurso
 WHERE CUR.IDCurso = 51 AND C.IDActividad IN (1, 2)
 GROUP BY Cur.Nombre;
 
-select * from SW_PORCENTAJE_APROB_DESAP_CURSO51
-
+--Por favor ejecutar la siguiente linea para ver la vista.
+SELECT * FROM VW_PORCENTAJE_APROB_DESAP_CURSO51

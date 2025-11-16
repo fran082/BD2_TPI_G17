@@ -220,9 +220,11 @@ foreign key (IDCalificacion) references CALIFICACIONES(ID)
 --ADD CONSTRAINT FK_Alumnos_Usuarios
 --FOREIGN KEY (IDUsuario) REFERENCES Usuarios(IDUsuario);
 
----cambios del ultimo commit
+--cambios del ultimo commit
 --ALTER TABLE CURSOSXALUMNO 
---ADD FechaInscripcion date not null default cast (getdate() as date); 
+--ADD FechaInscripcion date not null default cast (getdate() as date);
 
 --alter table CURSOS 
 --ADD Activo bit not null default 1;
+
+

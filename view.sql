@@ -19,10 +19,10 @@ Curs.Nombre as [Nombre del curso],
                WHEN MONTH(U.FechaNacimiento) > MONTH(GETDATE()) 
                     OR (MONTH(U.FechaNacimiento) = MONTH(GETDATE()) AND DAY(U.FechaNacimiento) > DAY(GETDATE()))
                THEN 1 ELSE 0 
-             END BETWEEN 29 AND 31
+             END BETWEEN 18 AND 25
       THEN 1 ELSE 0 
     END
-  ) AS [Personas entre 29 y 31],
+  ) AS [Personas entre 18 y 25],
   SUM(
     CASE 
       WHEN DATEDIFF(YEAR, U.FechaNacimiento, GETDATE()) 
@@ -30,10 +30,10 @@ Curs.Nombre as [Nombre del curso],
                WHEN MONTH(U.FechaNacimiento) > MONTH(GETDATE()) 
                     OR (MONTH(U.FechaNacimiento) = MONTH(GETDATE()) AND DAY(U.FechaNacimiento) > DAY(GETDATE()))
                THEN 1 ELSE 0 
-             END BETWEEN 32 AND 34
+             END BETWEEN 26 AND 35
       THEN 1 ELSE 0 
     END
-  ) AS [Personas entre 32 y 34],
+  ) AS [Personas entre 26 y 35],
   SUM(
     CASE 
       WHEN DATEDIFF(YEAR, U.FechaNacimiento, GETDATE()) 
@@ -41,10 +41,10 @@ Curs.Nombre as [Nombre del curso],
                WHEN MONTH(U.FechaNacimiento) > MONTH(GETDATE()) 
                     OR (MONTH(U.FechaNacimiento) = MONTH(GETDATE()) AND DAY(U.FechaNacimiento) > DAY(GETDATE()))
                THEN 1 ELSE 0 
-             END BETWEEN 35 AND 36
+             END BETWEEN 36 AND 50
       THEN 1 ELSE 0 
     END
-  ) AS [Personas entre 35 y 36]
+  ) AS [Personas entre 36 y 50]
 FROM Alumnos AS Alum
 INNER JOIN CURSOSXALUMNO AS CurAlum ON CurAlum.IDAlumno = Alum.IDAlumno
 INNER JOIN Cursos AS Curs ON Curs.IDCurso = CurAlum.IDCurso

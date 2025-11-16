@@ -961,3 +961,15 @@ VALUES
 (6, 1, 61, 42, 'Cursos del Sol', 'certificado de finalización'),
 (12, 1, 61, 44, 'Cursos del Sol', 'certificado de finalización');
 
+
+---MODIFICACION DE AÑO DE NACIMIENTO PARA LA VISTA
+UPDATE USUARIOS
+SET FechaNacimiento = CASE IDUsuario
+    WHEN 1 THEN '2005-01-01'
+    WHEN 7 THEN '1994-01-01'
+    WHEN 13 THEN '1999-01-01'
+    WHEN 2 THEN '1992-01-01'
+    WHEN 8 THEN '1992-01-01'
+    WHEN 14 THEN '1980-01-01'
+END
+WHERE IDUsuario IN (1, 7, 13, 2, 8, 14);

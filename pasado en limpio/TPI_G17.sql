@@ -148,7 +148,7 @@ create table PREGUNTAS(
 	IDPregunta bigint not null primary key identity (1,1),
 	IDCuestionario bigint not null foreign key references CUESTIONARIOS (IDCuestionario),
 	Enunciado varchar (300) not null check (Enunciado <> ''), 
-	Puntaje decimal (5,2) default 1.00
+	Puntaje decimal (5,2) default 1.00 CHECK (Puntaje >=0)
 );
 
 create table OPCIONES(
@@ -168,15 +168,15 @@ create table RESPUESTAALUMNOS(
 	IDAlumno bigint not null foreign key references ALUMNOS(IDAlumno),
 	OpcionElegida bigint not null foreign key references OPCIONES (ID),
 	Correcta bit not null,
-	PuntajeObtenido decimal (5,2)
+	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >=0)
 );
 
 create table RESULTADOCUESTIONARIO(
 	ID bigint not null primary key identity (1,1),
 	IDCuestionario bigint not null foreign key references CUESTIONARIOS(IDCuestionario),
 	IDAlumno bigint not null foreign key references ALUMNOS(IDAlumno),
-	PuntajeObtenido decimal (5,2),
-	PuntajeMaximo decimal (5,2),
+	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >=0),
+	PuntajeMaximo decimal (5,2) default 10.00,, 
 	Intento bigint check (Intento > 0),
 	Aprobado bit 
 );
@@ -185,8 +185,8 @@ create table CALIFICACIONES (
 	ID bigint not null primary key identity (1,1),
 	IDAlumno bigint foreign key references ALUMNOS(IDAlumno),
 	IDActividad bigint foreign key references ACTIVIDADES(IDActividad),
-	Nota decimal (5,2),
-	NotaFinal decimal (5,2)
+	Nota decimal (5,2) check (Nota >=0),
+	NotaFinal decimal (5,2) check (NotaFinal >=0)
 );
 
 

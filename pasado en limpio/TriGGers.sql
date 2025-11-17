@@ -18,7 +18,6 @@ BEGIN
 
 END;
 
---Por favor elimina una actividad de forma física para ver funcionar el trigger. 
 --DELETE FROM ACTIVIDADES where IDActividad = 6
 
 
@@ -40,8 +39,16 @@ as BEGIN
 	where c.IDAlumno in (select IDAlumno from inserted);
 END;
 
-----DISABLE TRIGGER TR_CalcularNotaFinal on CALIFICACIONES
-----ENABLE TRIGGER TR_CalcularNotaFinal on CALIFICACIONES
+
+
+--select * from CALIFICACIONES where IDAlumno=1
+--UPDATE CALIFICACIONES SET NotaFinal = 0 WHERE IDAlumno=1 
+--DISABLE TRIGGER TR_CalcularNotaFinal on CALIFICACIONES
+
+
+--ENABLE TRIGGER TR_CalcularNotaFinal on CALIFICACIONES
+--UPDATE CALIFICACIONES SET Nota = 9.00 WHERE IDAlumno= 1 AND IDActividad = 2
+
 
 
 
@@ -51,38 +58,30 @@ INSTEAD OF INSERT
 AS
 BEGIN
     SET NOCOUNT ON;
-
-    -- Variables para guardar los datos del INSERT
     DECLARE @IDCuestionario BIGINT;
     DECLARE @IDAlumno BIGINT;
     DECLARE @IntentosPrevios INT;
     DECLARE @IntentosPermitidos INT;
 
-    -- valores que vienen del INSERT
     SELECT 
         @IDCuestionario = IDCuestionario,
         @IDAlumno = IDAlumno
     FROM inserted;
 
-    -- cuántos intentos ya realizó este alumno
     SELECT @IntentosPrevios = COUNT(*)
     FROM RESULTADOCUESTIONARIO
     WHERE IDCuestionario = @IDCuestionario
       AND IDAlumno = @IDAlumno;
     
-    -- intentos permite el cuestionario
     SELECT @IntentosPermitidos = Intentos
     FROM CUESTIONARIOS
     WHERE IDCuestionario = @IDCuestionario;
 
-    -- Valida si supera el límite
     IF (@IntentosPrevios >= @IntentosPermitidos)
     BEGIN
         PRINT 'LIMITE DE INTENTOS ALCANZADOS. INTENTO "NO" REGISTRADO.';
         RETURN;
     END
-
-    -- Inserta el intento con número REAL (IntentosPrevios + 1)
     INSERT INTO RESULTADOCUESTIONARIO
         (IDCuestionario, IDAlumno, PuntajeObtenido, PuntajeMaximo, Intento, Aprobado)
     SELECT 
@@ -90,22 +89,13 @@ BEGIN
         IDAlumno,
         PuntajeObtenido,
         PuntajeMaximo,
-        @IntentosPrevios + 1,   -- << Num. de intento REAL
+        @IntentosPrevios + 1,   
         Aprobado
     FROM inserted;
 
 END;
 
---DISABLE TRIGGER TR_LimitesDeIntentosCuestionarios on RESULTADOCUESTIONARIO 
+--SELECT IDCuestionario, Intentos FROM CUESTIONARIOS;
+--SELECT * FROM RESULTADOCUESTIONARIO WHERE IDCuestionario = 1 AND IDAlumno = 2;
 
---ENABLE TRIGGER TR_LimitesDeIntentosCuestionarios on RESULTADOCUESTIONARIO 
-
-SELECT IDCuestionario, Intentos FROM CUESTIONARIOS;
-SELECT * FROM RESULTADOCUESTIONARIO WHERE IDCuestionario = 1 AND IDAlumno = 1;
-
-
-insert into RESULTADOCUESTIONARIO(IDCuestionario,IDAlumno,PuntajeObtenido,PuntajeMaximo,Intento,Aprobado) VALUES (1,1,0.00,0.00,3,0) ;
-
-
-
-delete RESULTADOCUESTIONARIO WHERE ID=45
+--insert into RESULTADOCUESTIONARIO(IDCuestionario,IDAlumno,PuntajeObtenido,PuntajeMaximo,Intento,Aprobado) VALUES (1,2,5.00,10.00,3,0);

@@ -57,8 +57,8 @@ Begin
 			return;
 		end
 
-	insert into CURSOSXALUMNO (IDAlumno,IDCurso,FechaInscripcion)
-	values (@IdAlumno,@IdCurso,GETDATE());
+	insert into CURSOSXALUMNO (IDCurso,IDAlumno,Activo,FechaInscripcion)
+	values (@IdCurso,@IdAlumno,1,GETDATE());
 	
 	print 'Se Agrego correctamente.';
 
@@ -85,7 +85,7 @@ as
 		 end
 		
 		IF EXISTS (
-			select 1 from CURSOS where IDCurso = @IdCurso
+			select 1 from CURSOS where IDCurso = @IdCurso and Activo = 0
 		) begin
 			print 'El curso ya esta dado de baja'
 			return;
@@ -97,5 +97,6 @@ as
 		print 'CURSO DADO DE BAJA CORRECTAMENTE.'
 
 	END	
+
 
 --exec SP_BajaDeCurso 80;

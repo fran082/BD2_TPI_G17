@@ -1,4 +1,4 @@
---CREATE DATABASE BD2_TPI_G17
+CREATE DATABASE BD2_TPI_G17
 GO
 
 USE BD2_TPI_G17
@@ -20,10 +20,13 @@ FechaNacimiento Date not null
 
 create Table ALUMNOS(
 IDAlumno bigint not null identity(1,1) primary key,
+IDUsuario bigint not null,
 Sexo varchar(9) not null check (Sexo = 'masculino' or Sexo = 'Masculino' 
 or Sexo = 'Femenino' or Sexo = 'femenino'),
 FechaDeRegistro DateTime not null default GETDATE(),
 Activo bit not null default 1
+
+foreign key (IDUsuario) references USUARIOS(IDUsuario)
 );
 
 CREATE TABLE PROFESORES(
@@ -31,11 +34,11 @@ IDProfesor integer identity(1,1) PRIMARY KEY NOT NULL,
 IDUsuario bigint not null,
 FechaIngreso date not null ,
 Sueldo money not null CHECK(Sueldo > 0),
-FechaFinalizacionContrato date null 
-check (FechaFinalizacionContrato IS NULL OR FechaFinalizacionContrato > FechaIngreso),
+FechaFinalizacionContrato date null ,
 Activo bit not null default 1
 
-foreign key (IDUsuario) references USUARIOS(IDUsuario)
+foreign key (IDUsuario) references USUARIOS(IDUsuario),
+check (FechaFinalizacionContrato IS NULL OR FechaFinalizacionContrato > FechaIngreso)
 );
 
 
@@ -57,12 +60,13 @@ check (Turno = 'mañana' OR Turno = 'tarde' OR Turno = 'noche'
 OR Turno = 'Mañana' OR Turno = 'Tarde' OR Turno = 'Noche'),
 CantDias tinyint not null check (CantDias = 1 OR CantDias = 2 OR CantDias = 3 OR
 CantDias = 4 OR CantDias = 5),
-HorarioComienzo tinyint not null check(HorarioComienzo > 7 AND HorarioComienzo < 21),
-HorarioCierre tinyint not null check(HorarioCierre > 8 AND HorarioCierre < 23
-AND HorarioCierre > HorarioComienzo),
+HorarioComienzo tinyint not null ,
+HorarioCierre tinyint not null,
 IDCurso integer not null --FK
 
-FOREIGN KEY (IDCurso) REFERENCES Cursos(IDCurso)
+FOREIGN KEY (IDCurso) REFERENCES Cursos(IDCurso),
+check(HorarioComienzo > 7 AND HorarioComienzo < 21),
+ check(HorarioCierre > 8 AND HorarioCierre < 23 AND HorarioCierre > HorarioComienzo)
 );
 
 CREATE TABLE Foros(
@@ -135,7 +139,7 @@ create table ACTIVIDADES (
 	Descripcion varchar (150) not null check (Descripcion <> ''),
 	FechaCreacion date not null,
 	FechaCierre date not null,
-	Activa bit not null check (Activa = 1 or Activa = 0)
+	Activo bit not null check (Activo = 1 or Activo = 0)
 );
 
 create table CUESTIONARIOS (
@@ -148,7 +152,7 @@ create table PREGUNTAS(
 	IDPregunta bigint not null primary key identity (1,1),
 	IDCuestionario bigint not null foreign key references CUESTIONARIOS (IDCuestionario),
 	Enunciado varchar (300) not null check (Enunciado <> ''), 
-	Puntaje decimal (5,2) default 1.00 CHECK (Puntaje >=0)
+	Puntaje decimal (5,2) default 1.00
 );
 
 create table OPCIONES(
@@ -168,15 +172,15 @@ create table RESPUESTAALUMNOS(
 	IDAlumno bigint not null foreign key references ALUMNOS(IDAlumno),
 	OpcionElegida bigint not null foreign key references OPCIONES (ID),
 	Correcta bit not null,
-	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >= 0)
+	PuntajeObtenido decimal (5,2)
 );
 
 create table RESULTADOCUESTIONARIO(
 	ID bigint not null primary key identity (1,1),
 	IDCuestionario bigint not null foreign key references CUESTIONARIOS(IDCuestionario),
 	IDAlumno bigint not null foreign key references ALUMNOS(IDAlumno),
-	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >=0),
-	PuntajeMaximo decimal (5,2) default 10.00, 
+	PuntajeObtenido decimal (5,2),
+	PuntajeMaximo decimal (5,2),
 	Intento bigint check (Intento > 0),
 	Aprobado bit 
 );
@@ -185,8 +189,8 @@ create table CALIFICACIONES (
 	ID bigint not null primary key identity (1,1),
 	IDAlumno bigint foreign key references ALUMNOS(IDAlumno),
 	IDActividad bigint foreign key references ACTIVIDADES(IDActividad),
-	Nota decimal (5,2) check (Nota >=0),
-	NotaFinal decimal (5,2) check (NotaFinal >=0)
+	Nota decimal (5,2),
+	NotaFinal decimal (5,2)
 );
 
 

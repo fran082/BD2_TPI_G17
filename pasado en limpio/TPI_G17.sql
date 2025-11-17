@@ -168,7 +168,7 @@ create table RESPUESTAALUMNOS(
 	IDAlumno bigint not null foreign key references ALUMNOS(IDAlumno),
 	OpcionElegida bigint not null foreign key references OPCIONES (ID),
 	Correcta bit not null,
-	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >=0)
+	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >= 0)
 );
 
 create table RESULTADOCUESTIONARIO(
@@ -176,7 +176,7 @@ create table RESULTADOCUESTIONARIO(
 	IDCuestionario bigint not null foreign key references CUESTIONARIOS(IDCuestionario),
 	IDAlumno bigint not null foreign key references ALUMNOS(IDAlumno),
 	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >=0),
-	PuntajeMaximo decimal (5,2) default 10.00,, 
+	PuntajeMaximo decimal (5,2) default 10.00, 
 	Intento bigint check (Intento > 0),
 	Aprobado bit 
 );

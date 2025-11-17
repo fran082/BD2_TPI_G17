@@ -124,8 +124,8 @@ create table ACTIVIDADES (
 	IDForo bigint not null foreign key references Foros (IDForo), 
 	Titulo varchar (100) not null,
 	Descripcion varchar (150) not null,
-	FechaCreacion date not null,
 	FechaCierre date not null,
+	FechaCreacion date not null,
 	Activa bit
 );
 
@@ -139,7 +139,7 @@ create table PREGUNTAS(
 	IDPregunta bigint not null primary key identity (1,1),
 	IDCuestionario bigint not null foreign key references CUESTIONARIOS (IDCuestionario),
 	Enunciado varchar (300) not null, 
-	Puntaje decimal (5,2) default 1.00
+	Puntaje decimal (5,2) default 1.00 CHECK (Puntaje >=0)
 );
 
 create table OPCIONES(
@@ -159,15 +159,15 @@ create table RESPUESTAALUMNOS(
 	IDAlumno bigint not null foreign key references ALUMNOS(IDAlumno),
 	OpcionElegida bigint not null foreign key references OPCIONES (ID),
 	Correcta bit,
-	PuntajeObtenido decimal (5,2)
+	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >=0)
 );
 
 create table RESULTADOCUESTIONARIO(
 	ID bigint not null primary key identity (1,1),
 	IDCuestionario bigint not null foreign key references CUESTIONARIOS(IDCuestionario),
 	IDAlumno bigint not null foreign key references ALUMNOS(IDAlumno),
-	PuntajeObtenido decimal (5,2),
-	PuntajeMaximo decimal (5,2),
+	PuntajeObtenido decimal (5,2) check (PuntajeObtenido >=0),
+	PuntajeMaximo decimal (5,2) default 10.00,
 	Intento bigint,
 	Aprobado bit 
 );
@@ -176,8 +176,8 @@ create table CALIFICACIONES (
 	ID bigint not null primary key identity (1,1),
 	IDAlumno bigint foreign key references ALUMNOS(IDAlumno),
 	IDActividad bigint foreign key references ACTIVIDADES(IDActividad),
-	Nota decimal (5,2),
-	NotaFinal decimal (5,2)
+	Nota decimal (5,2) check (Nota >=0),
+	NotaFinal decimal (5,2) check (NotaFinal >=0)
 );
 
 
@@ -220,11 +220,9 @@ foreign key (IDCalificacion) references CALIFICACIONES(ID)
 --ADD CONSTRAINT FK_Alumnos_Usuarios
 --FOREIGN KEY (IDUsuario) REFERENCES Usuarios(IDUsuario);
 
---cambios del ultimo commit
+---cambios del ultimo commit
 --ALTER TABLE CURSOSXALUMNO 
---ADD FechaInscripcion date not null default cast (getdate() as date);
+--ADD FechaInscripcion date not null default cast (getdate() as date); 
 
 --alter table CURSOS 
 --ADD Activo bit not null default 1;
-
-

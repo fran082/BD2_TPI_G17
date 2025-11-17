@@ -1,4 +1,3 @@
-
 create view VW_RankingCursosxAño as
 SELECT
 	c.IDCurso,

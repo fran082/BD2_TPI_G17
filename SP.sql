@@ -55,7 +55,7 @@ as
 		 end
 		
 		IF EXISTS (
-			select 1 from CURSOS where IDCurso = @IdCurso
+			select 1 from CURSOS where IDCurso = @IdCurso and Activo = 0
 		) begin
 			print 'El curso ya esta dado de baja'
 			return;
@@ -68,4 +68,8 @@ as
 
 	END	
 
---exec SP_BajaDeCurso 80;
+
+
+exec SP_BajaDeCurso 63;
+
+SELECT * FROM CURSOS

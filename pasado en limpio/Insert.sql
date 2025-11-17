@@ -354,7 +354,7 @@ values
 ('Camila','Yacomucci',22011879,'p.yacomucci@docente.com','hashCY','1999-07-07');
 
 --ultimo commit
-insert into usuarios (Nombre,Apellido,DNI,Mail,Contrasena,FechaNacimiento) values
+insert into USUARIOS (Nombre,Apellido,DNI,Mail,Contrasena,FechaNacimiento) values
 ('Tomas', 'Rodriguez', 42545333, 'tomas.rod@gmail.com', 'hash_tomas_19', '2000-05-21')
 
 --------------

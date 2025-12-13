@@ -20,7 +20,8 @@ FechaNacimiento Date not null
 
 create Table ALUMNOS(
 IDAlumno bigint not null identity(1,1) primary key,
-Sexo varchar(9) not null,
+Sexo varchar(9) not null check (Sexo = 'masculino' or Sexo = 'Masculino' 
+or Sexo = 'Femenino' or Sexo = 'femenino'),
 FechaDeRegistro DateTime not null,
 Activo bit not null
 );
@@ -197,8 +198,7 @@ URLVerificacion varchar(100) null,
 
 foreign key (IDAlumno) references Alumnos(IDAlumno),
 foreign key (IDProfesor) references PROFESORES(IDProfesor),
-foreign key (IDCurso) references Cursos(IDCurso),
-foreign key (IDCalificacion) references CALIFICACIONES(ID)
+foreign key (IDCurso) references Cursos(IDCurso)
 );
 
 --ALTER TABLE Alumnos

@@ -56,8 +56,8 @@ CREATE TABLE Comisiones(
 IDComision integer identity (1,1) PRIMARY KEY not null,
 NumeroComision integer not null check(NumeroComision > 0),
 Turno varchar(10) not null
-check (Turno = 'mañana' OR Turno = 'tarde' OR Turno = 'noche' 
-OR Turno = 'Mañana' OR Turno = 'Tarde' OR Turno = 'Noche'),
+check (Turno = 'maÃ±ana' OR Turno = 'tarde' OR Turno = 'noche' 
+OR Turno = 'MaÃ±ana' OR Turno = 'Tarde' OR Turno = 'Noche'),
 CantDias tinyint not null check (CantDias = 1 OR CantDias = 2 OR CantDias = 3 OR
 CantDias = 4 OR CantDias = 5),
 HorarioComienzo tinyint not null ,
@@ -205,13 +205,12 @@ IDProfesor integer not null,
 IDCurso integer not null,
 IDCalificacion bigint not null,
 Institucion varchar(100) not null check(Institucion = 'Cursos del Sol'),
-Certificado varchar(100) not null check(Certificado = 'certificado de finalización'),
+Certificado varchar(100) not null check(Certificado = 'certificado de finalizaciÃ³n'),
 URLVerificacion varchar(100) null,
 
 foreign key (IDAlumno) references Alumnos(IDAlumno),
 foreign key (IDProfesor) references PROFESORES(IDProfesor),
-foreign key (IDCurso) references Cursos(IDCurso),
-foreign key (IDCalificacion) references CALIFICACIONES(ID)
+foreign key (IDCurso) references Cursos(IDCurso)
 );
 
 --ALTER TABLE Alumnos
@@ -239,4 +238,5 @@ foreign key (IDCalificacion) references CALIFICACIONES(ID)
 
 --alter table CURSOS 
 --ADD Activo bit not null default 1;
+
 
